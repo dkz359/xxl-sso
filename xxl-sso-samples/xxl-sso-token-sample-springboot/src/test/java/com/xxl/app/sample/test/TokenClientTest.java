@@ -18,9 +18,9 @@ import java.util.Map;
 public class TokenClientTest {
 	private static Logger logger = LoggerFactory.getLogger(TokenClientTest.class);
 
-	public static String ssoServer = "http://xxlssoserver.com:8080/xxl-sso-server";
+	public static String ssoServer = "http://127.0.0.1:8088/xxl-sso-server";
 
-	public static String client01 = "http://xxlssoclient1.com:8082/xxl-sso-token-sample-springboot/";
+	public static String client01 = "http://127.0.0.1:8082/xxl-sso-token-sample-springboot/";
 	public static String client02 = "http://xxlssoclient2.com:8082/xxl-sso-token-sample-springboot/";
 
 	@Test
@@ -35,18 +35,18 @@ public class TokenClientTest {
 		Assert.assertNotNull(username);
 
 		clientApiRequestTest(client01, sessionId);
-		clientApiRequestTest(client02, sessionId);
+//		clientApiRequestTest(client02, sessionId);
 
 		// 注销：销毁 sso sessionId
-		boolean loginoutResult = logoutTest(sessionId);
-		Assert.assertTrue(loginoutResult);
+//		boolean loginoutResult = logoutTest(sessionId);
+//		Assert.assertTrue(loginoutResult);
 
 		// 登陆状态校验
-		username = logincheckTest(sessionId);
-		Assert.assertNull(username);
+//		username = logincheckTest(sessionId);
+//		Assert.assertNull(username);
 
-		clientApiRequestTest(client01, sessionId);
-		clientApiRequestTest(client02, sessionId);
+//		clientApiRequestTest(client01, sessionId);
+//		clientApiRequestTest(client02, sessionId);
 	}
 
 	/**
